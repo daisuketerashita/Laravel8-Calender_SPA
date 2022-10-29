@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 function Example(){
     const [year,setYear] = useState(new Date().getFullYear())
     const [month,setMonth] = useState(new Date().getMonth()+1)
+    const last = new Date(year,month,0).getDate()
+    const prevlast = new Date(year,month-1,0).getDate()
     const calendar = createCalendear(year,month)
  
     const onClick = n => () => {
@@ -41,7 +43,7 @@ function Example(){
                                 <td key={`${i}${j}`} id={day} >
                                     <div>
                                         <div>
-                                            {day}
+                                            {day > last ? day - last : day <= 0 ? prevlast + day : day}
                                         </div>
                                         <div className="schedule-area"> 
                                         </div>
