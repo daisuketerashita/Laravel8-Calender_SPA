@@ -9,9 +9,10 @@ use App\Models\Schedule;
 class ScheduleController extends Controller
 {
     public function scheduleindex(Request $request)
-    {
+    { 
         $schedules = Schedule::all();
 
         return response()->json($schedules);
     }
+
 }

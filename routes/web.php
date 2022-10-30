@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +15,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('{any}', function () {return view('app');})->where('any','.*');
 
-Route::group(['middleware' => 'api'],function(){
-    Route::post('posts',[ScheduleController::class,'scheduleindex']);
-});
