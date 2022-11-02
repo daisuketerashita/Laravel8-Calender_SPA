@@ -22,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'api'],function(){
     Route::post('posts',[ScheduleController::class,'scheduleindex']);
     Route::post('posts/create',[ScheduleController::class,'create']);
+    Route::post('edit',[ScheduleController::class,'edit']);
+    Route::post('update',[ScheduleController::class,'update']);
 });
