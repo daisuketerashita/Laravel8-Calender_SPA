@@ -10,7 +10,7 @@ class ScheduleController extends Controller
 {
     //スケジュールの取得
     public function scheduleindex(Request $request)
-    { 
+    {
         $schedules = Schedule::all();
 
         return response()->json($schedules);
@@ -20,7 +20,7 @@ class ScheduleController extends Controller
     public function create(Request $request)
     {
         $schedules = new Schedule;
-        
+
         $schedules->sch_date = $request->sch_date;
         $schedules->sch_time = $request->sch_time;
         $schedules->sch_category = $request->sch_category;
@@ -49,4 +49,12 @@ class ScheduleController extends Controller
         return $schedules;
     }
 
+    //データ削除アクション
+    public function delete(Request $request)
+    {
+        $schedule = Schedule::find($request->id);
+        $schedule->delete();
+        $schedules = Schedule::all();
+        return $schedules;
+    }
 }

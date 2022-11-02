@@ -24,4 +24,5 @@ Route::group(['middleware' => 'api'],function(){
     Route::post('posts/create',[ScheduleController::class,'create']);
     Route::post('edit',[ScheduleController::class,'edit']);
     Route::post('update',[ScheduleController::class,'update']);
+    Route::post('delete',[ScheduleController::class,'delete']);
 });
